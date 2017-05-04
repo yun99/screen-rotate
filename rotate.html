@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<title>Document</title>
+	<style>
+		html,body{
+			padding: 0;
+			margin: 0;
+			height: 100%;
+			text-aling: center;
+		}
+		.textDIV{
+
+			display: none;
+			text-align: center;
+		}
+		.text{
+			font-size: 28px;
+			color:#000;
+		  	line-height: 80%;
+			width: 100%;
+			height: 80%;
+			/*background:#AAA;*/
+		}
+		.footer{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding: 5px;
+			text-align: center;
+		}
+		.btn{
+			width: 40%;
+			height: 30px;
+			background: #AAA;
+			border: #AAA;
+		}
+		@media screen and (orientation: portrait) {
+		  /*竖屏 css*/
+		  .portrait{
+		  	display:block; 
+		  	margin: auto;
+		  	height: 320px;
+		  	line-height: 320px;
+		  	transform: rotate(90deg);
+		  }
+		} 
+		@media screen and (orientation: landscape) {
+		  /*横屏 css*/
+		  .landscape{
+		  	display:block;
+		  	line-height: 256px;
+		  	/*transform: rotate(90deg) ;*/
+		  }
+		}
+	</style>
+</head>
+<body>
+	<div class="textDIV portrait">
+		<span class="text">竖屏</span>
+
+	</div>
+	<div class="textDIV landscape">
+		<span class="text ">横屏</span>
+
+	</div>
+	<div class="footer">
+		<button class="btn">重置</button>
+		<button class="btn">完成</button>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	//判断手机横竖屏状态：
+	window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+		if (window.orientation === 180 || window.orientation === 0) {
+			console.log('竖屏状态！');
+		}
+		if (window.orientation === 90 || window.orientation === -90) {
+			console.log('横屏状态！');
+		}
+	}, false);
+	//移动端的浏览器一般都支持window.orientation这个参数，通过这个参数可以判断出手机是处在横屏还是竖屏状态。
+</script>
